@@ -1,8 +1,8 @@
 // existing hook in react, custom implementation
 
-function useReducer<T>(reducer: (state : T, action: string) => T, initialState: T): [T, (action: string) => void] {
+function useReducer<T>(reducer: (state : T, action: Record<string, any>) => T, initialState: T): [T, (action: Record<string, any>) => void] {
   const [state, setState] = React.useState();
-  function dispatch(action:string) {
+  function dispatch(action:Record<string, any>) {
     setState(reducer(state, action));
   }
 
